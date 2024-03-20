@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd";
-import { Snapshot, useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { toDoState } from "../atoms";
 import Board from "./Board";
 import DeleteDroppable from "./DeleteDroppable";
@@ -8,24 +8,21 @@ import DeleteDroppable from "./DeleteDroppable";
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  max-width: 900px;
-  width: 100%;
-  height: 90vh;
+  justify-content: flex-start;
+  height: 80vh;
   margin: 0 auto;
+  margin-bottom: 100px;
+  margin-left: 50px;
 `;
 const Boards = styled.div`
-  width: 100%;
-  display: grid;
+  display: flex;
   gap: 15px;
-  grid-template-columns: repeat(3, 1fr);
 `;
 
 const Drag = () => {
   const [toDos, setToDos] = useRecoilState(toDoState);
   const onDragEnd = (info: DropResult) => {
-    console.log(info);
-    const { source, destination, draggableId } = info;
+    const { source, destination } = info;
     if (!destination) return;
     /*    if (!isNaN(Number(draggableId))) {
       console.log("Asfaf");

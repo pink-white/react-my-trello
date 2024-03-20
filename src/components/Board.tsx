@@ -4,8 +4,8 @@ import DraggableCard from "./DraggableCard";
 import { useForm } from "react-hook-form";
 import { ITodo, toDoState } from "../atoms";
 import { useSetRecoilState } from "recoil";
-import { FaTrash } from "react-icons/fa";
-import { TbEdit } from "react-icons/tb";
+import { FaTrash, FaEdit } from "react-icons/fa";
+import DeleteDroppable from "./DeleteDroppable";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -38,7 +38,8 @@ const Area = styled.div<IAreaProps>`
   transition: background-color 0.3s ease-in-out;
   padding: 10px;
   min-height: 150px;
-  max-height: 240px;
+
+  width: 250px;
   overflow-y: auto;
   margin-bottom: 45px;
 `;
@@ -51,12 +52,13 @@ const BoardHeader = styled.header`
   border-bottom: 1px solid whitesmoke;
   margin-bottom: 10px;
   font-size: 20px;
-
   div {
     position: absolute;
     right: 10px;
   }
   svg {
+    font-size: 22px;
+    margin-left: 7px;
     opacity: 0;
     visibility: hidden;
     transition: 0.2s ease-in-out;
@@ -166,7 +168,7 @@ const Board = ({ toDos, boardId, index }: IBoardProps) => {
                   <BoardHeader>
                     <Title>{boardId}</Title>
                     <div>
-                      <TbEdit onClick={handleBoardEdit} />
+                      <FaEdit onClick={handleBoardEdit} />
                       <FaTrash onClick={handleBoardDelete} />
                     </div>
                   </BoardHeader>

@@ -1,13 +1,14 @@
 import { Droppable } from "react-beautiful-dnd";
 import styled from "styled-components";
-import { FaTrash } from "react-icons/fa";
-import { BsTrash2Fill } from "react-icons/bs";
+import { FcFullTrash } from "react-icons/fc";
+import { FcEmptyTrash } from "react-icons/fc";
 
 const ToDoDeleteBox = styled.div<{ $isDraggingOver: Boolean }>`
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  background-color: ${(props) => (props.$isDraggingOver ? "tomato" : "white")};
+  background-color: ${(props) =>
+    props.$isDraggingOver ? "rgba(255, 118, 117,1)" : "rgba(116, 185, 255, 1)"};
   position: fixed;
   bottom: -120px;
   left: 43%;
@@ -15,9 +16,9 @@ const ToDoDeleteBox = styled.div<{ $isDraggingOver: Boolean }>`
   justify-content: center;
   transition: 0.2s ease-in-out;
   svg {
-    font-size: 42px;
+    font-size: 60px;
     position: fixed;
-    bottom: 18px;
+    bottom: 13px;
     color: ${(props) => props.theme.iconColor};
     transition: 0.2s ease-in-out;
     transform: ${(props) => (props.$isDraggingOver ? `scale(115%)` : `none`)};
@@ -33,7 +34,7 @@ const DeleteDroppable = () => {
           {...provided.droppableProps}
           $isDraggingOver={snapshot.isDraggingOver}
         >
-          {snapshot.isDraggingOver ? <BsTrash2Fill /> : <FaTrash />}
+          {snapshot.isDraggingOver ? <FcFullTrash /> : <FcEmptyTrash />}
 
           {provided.placeholder}
         </ToDoDeleteBox>
