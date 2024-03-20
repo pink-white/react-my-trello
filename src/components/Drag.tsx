@@ -10,9 +10,9 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   height: 80vh;
-  margin: 0 auto;
-  margin-bottom: 100px;
-  margin-left: 50px;
+  padding: 0px 50px;
+  position: relative;
+  bottom: -70px;
 `;
 const Boards = styled.div`
   display: flex;

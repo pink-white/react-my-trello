@@ -62,6 +62,7 @@ font-weight: 300;
 line-height: 1.2;
 background: ${(props) => props.theme.bgColor};
 color:black;
+height: 100vh;
 }
 a{
   color:inherit;

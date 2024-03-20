@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 1px 10px #0984e3;
-  position: sticky;
+  position: fixed;
   top: 0px;
   z-index: 1;
 `;
@@ -31,7 +31,7 @@ const NewBoardBox = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  left: -200px;
+  left: -120px;
 `;
 const CreateBoard = styled.div`
   display: flex;
